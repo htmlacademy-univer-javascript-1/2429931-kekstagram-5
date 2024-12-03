@@ -19,4 +19,3 @@ rules:
   quotes: [1, "double", "avoid-escape"]
   no-unused-vars: warn
   no-console: warn
-  indent: ["error", 4, {"CallExpression": {"arguments": 4}}]
