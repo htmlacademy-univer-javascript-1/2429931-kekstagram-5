@@ -19,6 +19,14 @@ const MESSAGE = [
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!',
 ];
 
+const DESCRIPTION = [
+  'description1',
+  'description2',
+  'description3',
+  'description4',
+  'description5',
+];
+
 const getRandomInteger = (a, b) => {
   const lower = Math.ceil(Math.min(a, b));
   const upper = Math.floor(Math.max(a, b));
@@ -32,19 +40,11 @@ function createPosts(index){
   return {
     id: index,
     url: `photos/${index}.jpg`,
-    description: `description${index}`,
+    description: DESCRIPTION[getRandomInteger(0,4)],
     likes: getRandomInteger(15,200),
     comments: getAllComments(),
   };
 }
-
-// function getAllPosts(){
-//     const posts = new Array(COUNT_POSTS)
-//         .fill(0)
-//         .map((item,index) => createPosts(index + 1));
-//     return posts;
-// }
-
 
 function getAllPosts() {
   return Array.from(Array(COUNT_POSTS), (element, index) => createPosts(index + 1));
@@ -53,23 +53,20 @@ function getAllPosts() {
 function createComments(index){
   return{
     id: index,
-    avatar: `img/avatar-${getRandomInteger(0,6)}.svg`,
-    message: getRandomArrayElement(MESSAGE),
+    avatar: `img/avatar-${getRandomInteger(1,6)}.svg`,
+    message: getAllMessages(),
     name: getRandomArrayElement(NAMES_USER),
   };
 }
 
-// function getAllComments(){
-//     const randomCountMessage = getRandomInteger(0, 30);
-//     const messages = new Array(randomCountMessage)
-//         .fill(0)
-//         .map((item,index) => createComments(index + 1));
-//     return messages;
-// }
-
 function getAllComments() {
-  const randomCountMessage = getRandomInteger(0, 30);
-  return Array.from(Array(randomCountMessage), (element, index) => createComments(index + 1));
+  const randomCountComments = getRandomInteger(0, 30);
+  return Array.from(Array(randomCountComments), (element, index) => createComments(index + 1));
+}
+
+function getAllMessages(){
+  const randomCountMessages = getRandomInteger(1,6);
+  return Array.from(Array(randomCountMessages), () => getRandomArrayElement(MESSAGE)).join("\n");
 }
 
 console.log(getAllPosts());
