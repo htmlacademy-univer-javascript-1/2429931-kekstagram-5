@@ -1,5 +1,4 @@
 import { getAllPosts } from "./data.js";
+import "./rendering.js";
 
 console.log(getAllPosts());
-// Как лучше нужно было сделать, чтобы отправить PR на проверку без изменений?
-//не придумала ничего лучше :(
