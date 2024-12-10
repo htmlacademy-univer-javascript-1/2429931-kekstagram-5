@@ -3,16 +3,22 @@ import { getAllPosts } from "./data.js";
 const picturesContainer = document.querySelector(".pictures");
 const picturesTemplate = document.querySelector("#picture").content.querySelector(".picture");
 
-const postsFragment = document.createDocumentFragment();
+function renderPosts(){
+  const postsFragment = document.createDocumentFragment();
 
-const posts = getAllPosts();
-posts.forEach((post) => {
-  const postsElement = picturesTemplate.cloneNode(true);
-  postsElement.querySelector(".picture__img").src = post.url;
-  postsElement.querySelector(".picture__img").alt = post.description;
-  postsElement.querySelector(".picture__comments").textContent = post.comments.length;
-  postsElement.querySelector(".picture__likes").textContent = post.likes;
-  picturesContainer.appendChild(postsElement);
-});
+  const posts = getAllPosts();
+  posts.forEach((post) => {
+    const {url, description, comments, likes} = post;
+    const postsElement = picturesTemplate.cloneNode(true);
+    const queryPicture = postsElement.querySelector(".picture__img");
+    queryPicture.src = url;
+    queryPicture.alt = description;
+    postsElement.querySelector(".picture__comments").textContent = comments.length;
+    postsElement.querySelector(".picture__likes").textContent = likes;
+    postsFragment.appendChild(postsElement);
+  });
 
-picturesContainer.appendChild(postsFragment);
+  picturesContainer.appendChild(postsFragment);
+}
+
+export {renderPosts};

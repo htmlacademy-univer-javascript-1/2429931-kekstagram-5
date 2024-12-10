@@ -1,4 +1,4 @@
-import { getAllPosts } from "./data.js";
-import "./rendering.js";
+// import { getAllPosts } from "./data.js";
+import { renderPosts} from "./rendering.js";
 
-console.log(getAllPosts());
+renderPosts();
