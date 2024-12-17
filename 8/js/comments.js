@@ -1,4 +1,5 @@
 import { createCommentTemplate } from "./comment-template.js";
+import { COMMENTS_LOAD_COUNT } from "./constansts.js";
 
 const bigPictureElement = document.querySelector(".big-picture");
 const socialBigPicture = bigPictureElement.querySelector(".big-picture__social");
@@ -9,10 +10,8 @@ const commentTemplate = document.querySelector("#comment").content.querySelector
 const btnLoaderComments = bigPictureElement.querySelector(".comments-loader");
 const countComments = bigPictureElement.querySelector(".social__comment-count");
 const listComments = bigPictureElement.querySelector(".social__comments");
-const commsLoader = socialBigPicture.querySelector(".social__comments-loader");
-const commsCount = socialBigPicture.querySelector(".social__comment-count");
-
-const COMMENTS_LOAD_COUNT = 5;
+const commentsLoader = socialBigPicture.querySelector(".social__comments-loader");
+const commentsCount = socialBigPicture.querySelector(".social__comment-count");
 
 let countCommsShow = 0;
 
@@ -22,13 +21,13 @@ function removeOldComments(){
   }
 }
 
-const addOrRemoveHidden = (hiddenFlag) =>{
+const hiddenLoadAndCountComments = (hiddenFlag) =>{
   if (hiddenFlag){
-    commsLoader.classList.add("hidden");
-    commsCount.classList.add("hidden");
+    commentsLoader.classList.add("hidden");
+    commentsCount.classList.add("hidden");
   } else {
-    commsLoader.classList.remove("hidden");
-    commsCount.classList.remove("hidden");
+    commentsLoader.classList.remove("hidden");
+    commentsCount.classList.remove("hidden");
   }
 };
 
@@ -48,14 +47,15 @@ function renderComments(comments) {
   countComments.innerHTML = `${countCommsShow} из <span class="comments-count">${comments.length}</span> комментариев`;
 
   if (countCommsShow < comments.length) {
-    addOrRemoveHidden(false);
+    hiddenLoadAndCountComments(false);
 
     btnLoaderComments.onclick = () => {
       renderComments(comments);
     };
     return;
   }
-  addOrRemoveHidden(true);
+  hiddenLoadAndCountComments(true);
+  btnLoaderComments.onclick = null;
 }
 
 function createComment(comment) {
@@ -66,7 +66,7 @@ function createComment(comment) {
 
   elementCommentBlock.src = avatar;
   elementCommentBlock.alt = name;
-  // elementCommentBlock.title = name;
+  elementCommentBlock.title = name;
   commentBlock.querySelector(".social__text").textContent = message;
 
   return commentBlock;
