@@ -26,4 +26,7 @@ const DESCRIPTION = [
   'Описание: волк, заяц',
   'Описание: горы, что будоражат взор',
 ];
-export {COUNT_POSTS, NAMES_USER, MESSAGE, DESCRIPTION};
+
+const COMMENTS_LOAD_COUNT = 5;
+
+export {COUNT_POSTS, NAMES_USER, MESSAGE, DESCRIPTION, COMMENTS_LOAD_COUNT};
