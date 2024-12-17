@@ -35,16 +35,14 @@ function openFullPost(post){
 
   renderPost(post);
   document.addEventListener("keydown", onDocumentKeydown);
+  btnCloseFullPosts.addEventListener("click", closeFullPost);
 }
 
 function closeFullPost(){
   bigPictureElement.classList.add("hidden");
   document.querySelector("body").classList.remove("modal-open");
   document.removeEventListener("keydown", onDocumentKeydown);
+  btnCloseFullPosts.removeEventListener("click", closeFullPost);
 }
-
-btnCloseFullPosts.addEventListener("click", () => {
-  closeFullPost();
-});
 
 export {openFullPost};
