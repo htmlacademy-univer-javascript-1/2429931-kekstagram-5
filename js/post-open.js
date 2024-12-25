@@ -15,7 +15,7 @@ const onDocumentKeydown = (evt) => {
 function renderPost(post){
   const {url, description, comments, likes} = post;
 
-  const imgBigPictureElement = socialBigPicture.querySelector(".social__picture");
+  const imgBigPictureElement = bigPictureElement.querySelector(".big-picture__img img");
   const likesBigPicture = socialBigPicture.querySelector(".likes-count");
   const countCommentsBigPicture = socialBigPicture.querySelector(".comments-count");
   const descriptionBigPicture = socialBigPicture.querySelector(".social__caption");
