@@ -29,4 +29,13 @@ const DESCRIPTION = [
 
 const COMMENTS_LOAD_COUNT = 5;
 
-export {COUNT_POSTS, NAMES_USER, MESSAGE, DESCRIPTION, COMMENTS_LOAD_COUNT};
+const FILE_TYPES = ['jpg', 'jpeg', 'png'];
+
+const ERRORS = {
+  notHash: "Хэш-тег должен начинаться с символа # (решётка)",
+  hashRepeat: "Хэш-теги не должны повторяться",
+  notSpaces: "Хэш-теги должны разделяться пробелами",
+  bigSizeDescriprion: "Комментарий не должен содержать более 140 символов",
+};
+
+export {COUNT_POSTS, NAMES_USER, MESSAGE, DESCRIPTION, COMMENTS_LOAD_COUNT, FILE_TYPES, ERRORS};
