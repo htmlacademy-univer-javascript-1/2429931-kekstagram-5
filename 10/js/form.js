@@ -111,3 +111,5 @@ function onSubmitForm(evt){
     imgUploadForm.submit();
   }
 }
+
+export {addEventListenerForm};
