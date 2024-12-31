@@ -35,6 +35,7 @@ const createModalFragment = (template, message) => {
   modalBlock.classList.add('modal-show-active');
   if (message) {
     modalBlock.querySelector('.error__title').textContent = message;
+    // modalBlock.querySelector('.error__title').style.padding = "10px 5px";
   }
 
   modalFragment.appendChild(modalBlock);
@@ -57,6 +58,7 @@ const showErrorLoad = (message) => {
   document.body.append(createModalFragment(loadErrorTemplate, message));
   const btnError = document.querySelector(".error__button");
   addFragment(btnError);
+  // document.querySelector('.error__title').style.height = "10px";
 };
 
 export { showSuccessLoad, showErrorLoad };

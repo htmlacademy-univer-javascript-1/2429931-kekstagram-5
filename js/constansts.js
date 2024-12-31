@@ -38,4 +38,23 @@ const ERRORS = {
   bigSizeDescriprion: "Комментарий не должен содержать более 140 символов",
 };
 
-export {COUNT_POSTS, NAMES_USER, MESSAGE, DESCRIPTION, COMMENTS_LOAD_COUNT, FILE_TYPES, ERRORS};
+const API = {
+  BASE_URL: 'https://29.javascript.htmlacademy.pro/kekstagram',
+
+  Route: {
+    GET_DATA: '/data',
+    SEND_DATA: '/',
+  },
+
+  Method: {
+    GET: 'GET',
+    POST: 'POST',
+  },
+
+  ErrorText: {
+    GET_DATA: 'Не удалось загрузить данные. Попробуйте обновить страницу',
+    SEND_DATA: 'Не удалось отправить форму. Попробуйте ещё раз',
+  },
+};
+
+export {COUNT_POSTS, NAMES_USER, MESSAGE, DESCRIPTION, COMMENTS_LOAD_COUNT, FILE_TYPES, ERRORS, API};
