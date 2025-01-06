@@ -1,5 +1,5 @@
-import { renderPosts} from "./rendering.js";
+import { loadPost} from "./rendering.js";
 import { addEventListenerForm } from "./form.js";
 
-renderPosts();
+loadPost();
 addEventListenerForm();

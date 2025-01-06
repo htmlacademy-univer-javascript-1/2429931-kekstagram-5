@@ -1,14 +1,14 @@
-import { getAllPosts } from "./data.js";
 import { openFullPost } from "./post-open.js";
+import { getData } from "./api.js";
+import { showErrorLoad } from "./modal.js";
 
 const picturesContainer = document.querySelector(".pictures");
 
 const picturesTemplate = document.querySelector("#picture").content.querySelector(".picture");
 
-function renderPosts(){
+function renderPosts(posts){
   const postsFragment = document.createDocumentFragment();
 
-  const posts = getAllPosts();
   posts.forEach((post) => {
     const {url, description, comments, likes} = post;
 
@@ -29,5 +29,16 @@ function renderPosts(){
 
   picturesContainer.appendChild(postsFragment);
 }
+function loadPost (){
+  getData()
+    .then((data) => {
+      renderPosts(data);
+    })
+    .catch(
+      (err) => {
+        showErrorLoad(err.message);
+      }
+    );
+}
 
-export {renderPosts};
+export {loadPost};
