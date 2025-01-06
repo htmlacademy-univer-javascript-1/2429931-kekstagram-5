@@ -6,11 +6,9 @@ const picturesContainer = document.querySelector(".pictures");
 
 const picturesTemplate = document.querySelector("#picture").content.querySelector(".picture");
 
-function renderPosts(data){
+function renderPosts(posts){
   const postsFragment = document.createDocumentFragment();
 
-  // const posts = getAllPosts();
-  const posts = data;
   posts.forEach((post) => {
     const {url, description, comments, likes} = post;
 
